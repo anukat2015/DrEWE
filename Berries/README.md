@@ -1,4 +1,4 @@
 Berries-DrEWE
 =============
 
-Raspberries scripts that communicate with GSN and/or SPIN
+Raspberry's scripts and modules that communicate with GSN and/or SPIN to produce events or make actions
