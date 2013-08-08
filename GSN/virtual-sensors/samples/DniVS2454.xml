@@ -1,0 +1,32 @@
+<virtual-sensor name="DniVS2454123" priority="11">
+
+	<processing-class>
+		<class-name>gsn.vsensor.BridgeVirtualSensor</class-name>
+		<output-structure>
+			<field name="number" type="int" />
+			<field name="name" type="binary" />
+		</output-structure>
+	</processing-class>
+	<description>Get data from dni sensor</description>
+	<life-cycle pool-size="100" />
+	<addressing>
+		<predicate key="geographical">Not yet specified</predicate>
+	</addressing>
+	<storage history-size="2h" />
+	<streams>
+		<stream name="input1">
+			<source alias="source1" sampling-rate="1" storage-size="1">
+				<address wrapper="remote-direct">
+					<predicate key="notification-id">1.4</predicate>
+					<output-structure>
+						<field name="number" type="int" />
+						<field name="name" type="binary" />
+
+					</output-structure>
+				</address>
+				<query>select * from wrapper</query>
+			</source>
+			<query>select * from source1</query>
+		</stream>
+	</streams>
+</virtual-sensor>
