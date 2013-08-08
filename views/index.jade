@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	script(src='js/jquery.user.events.js')
+	body
+		.container.jumbotron
+			h1 Demo Drools
+			p Welcome to #{title}
+			hr
+			button#eventGreen.btn.btn-success(href='#') Send Green Event 
+				img(src="img/evernote.png")
+			hr
+			button#eventBlue.btn.btn-primary(href='#') Send Blue Event
+				img(src="img/twitter.png")
+			hr
+			button#eventRed.btn.btn-danger(href='#') Send Red Event  
+				img(src="img/gmail2.png")
+			hr
+			button#eventYellow.btn.btn-warning(href='#') Send Yellow Event
+				img(src="img/feed.png")

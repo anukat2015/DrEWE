@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	script(src='js/jquery.user.bot.js')
+	script(src='/socket.io/socket.io.js')
+	link(rel='stylesheet', href='/stylesheets/bubbles.css')
+		
+	body
+		.row-fluid.bot-background
+			#bot-image.span6
+				img(src='img/nico.png', style="width:100%;")
+			#bot-text.span6
