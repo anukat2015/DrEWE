@@ -1,0 +1,24 @@
+extends layout
+
+block content
+	script(src='js/jquery.user.js')
+	body
+		.container-fluid
+			.navbar.navbar-inverse.navbar-fixed-top
+				.navbar-inner.row-fluid
+					h1.offset1.span5(style="color:#FFFFFF") #{title}
+					.offset1.span3	
+						button#redCircle.btn.btn-danger(href='#') Add  
+							img(src="img/gmail2.png", style="max-width:50%")
+							
+						button#blueCircle.btn.btn-primary(href='#') Add 
+							img(src="img/twitter.png", style="max-width:50%")
+						
+						button#greenCircle.btn.btn-success(href='#') Add 
+							img(src="img/evernote.png", style="max-width:50%")
+						button#yellowCircle.btn.btn-warning(href='#') Add 
+							img(src="img/feed.png", style="max-width:50%")
+					button#composerButton.span2.btn.btn-large.btn-inverse(href='#') Compose!
+
+					
+			#composer
