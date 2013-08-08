@@ -1,0 +1,33 @@
+<virtual-sensor name="RemoteDniVS" priority="11">
+
+	<processing-class>
+		<class-name>gsn.vsensor.BridgeVirtualSensor</class-name>
+		<output-structure>
+			<field name="number" type="int" />
+			<field name="name" type="varchar(60)" />
+		</output-structure>
+	</processing-class>
+	<description>Get data from dni sensor</description>
+	<life-cycle pool-size="100" />
+	<addressing>
+		<predicate key="geographical">Not yet specified</predicate>
+		<predicate key="eventType">DniEvent</predicate>
+	</addressing>
+	<storage history-size="2h" />
+	<streams>
+		<stream name="input1">
+			<source alias="source1" sampling-rate="1" storage-size="1">
+				<address wrapper="remote-direct">
+					<predicate key="notification-id">1.3</predicate>
+					<output-structure>
+						<field name="number" type="int" />
+						<field name="name" type="varchar(60)" />
+
+					</output-structure>
+				</address>
+				<query>select * from wrapper</query>
+			</source>
+			<query>select * from source1</query>
+		</stream>
+	</streams>
+</virtual-sensor>
