@@ -1,0 +1,75 @@
+package es.upm.dit.gsi.DrEwe.Rules;
+ 
+import es.upm.dit.gsi.DrEwe.Beans.Event;
+import es.upm.dit.gsi.DrEwe.Beans.LightEvent;
+import es.upm.dit.gsi.DrEwe.Beans.DniEvent;
+import  es.upm.dit.gsi.DrEwe.Utils.Bot;
+import  es.upm.dit.gsi.DrEwe.Utils.Twitter;
+ 
+declare Event
+	@role(event)
+end
+declare LightEvent
+	@role(event)
+end
+declare DniEvent
+	@role(event)
+end
+ 
+rule "Event Inserted"
+	when
+		$newEvent: Event() from entry-point entrada
+		
+	then
+		System.out.println("New Event received from: "+$newEvent.getSource() );
+end
+rule "Light On" 
+	when 
+		$newEvent0: LightEvent(value<1000) from entry-point entrada 
+
+	then 
+		System.out.println("Light on"); 
+		insert(new Event("light_on"));
+end
+rule "Light Off"
+	when
+		$newEvent0: LightEvent(value>1000) from entry-point entrada
+	then
+		System.out.println("Light off"); 
+		insert(new Event("light_off"));
+end
+rule "Bot-Luz"
+	when 
+		$newEvent: Event(source=="light_off") from entry-point entrada
+		$newEventOff: Event(source=="light_on", this after[0s,10s] $newEvent) from entry-point entrada
+	then
+        botFunction("Luz encendida");
+		System.out.println("Rule bot-luz triggered");
+end 
+
+rule "Dni"
+	when
+		$newDniEvent: DniEvent() from entry-point entrada
+	then
+		botFunction("Bienvenido al gsi "+$newDniEvent.getName());
+		
+end
+rule "Reunion"
+	when
+		$newDniEvent: DniEvent() from entry-point entrada
+		$newDniEventOther: DniEvent(this coincides[ 10s,0s ] $newDniEvent ) from entry-point entrada
+	then
+		//botFunction("Reunion: "+$newDniEvent.getName()+" y "+$newDniEventOther.getName());
+end
+	
+		
+
+function void botFunction(String message){
+		Bot bot = new Bot();
+		bot.send(message);
+}
+
+function void twitterFunction(String message){
+	Twitter twitter = new Twitter();
+	twitter.send(message);
+}
