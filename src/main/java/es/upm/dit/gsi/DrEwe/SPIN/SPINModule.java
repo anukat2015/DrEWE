@@ -36,7 +36,7 @@ public class SPINModule {
 	private OntModel ontModel;
 	private int eventsInserted;
 	private Properties prop;
-	private Model newTriples;
+	private OntModel newTriples;
 
 	public SPINModule() {
 		super();
@@ -57,7 +57,8 @@ public class SPINModule {
 
 			this.loadRules();
 
-			this.newTriples = ModelFactory.createDefaultModel(ReificationStyle.Minimal);
+			Model newTriplesModel = ModelFactory.createDefaultModel(ReificationStyle.Minimal);
+			this.newTriples=JenaUtil.createOntologyModel(OntModelSpec.OWL_MEM,newTriplesModel);
 			this.newTriples.setNsPrefix("dcterms",DCTerms.NS);
 			this.ontModel.addSubModel(newTriples);
 
@@ -79,8 +80,9 @@ public class SPINModule {
 	public void insertEvent(SPINEvent event){
 		String title=event.getTitle();
 		String description=event.getDescription();
-		Resource myEvent=ontModel.createResource("http://gsi.dit.upm.es/ontologies/ewe/ns/Event_"+this.eventsInserted);
 		eventsInserted++;
+		Resource myEvent=this.ontModel.createResource("http://gsi.dit.upm.es/ontologies/ewe/ns/Event_"+this.eventsInserted);
+		
 		myEvent.addProperty(DCTerms.title, title);
 		myEvent.addProperty(DCTerms.description, description);
 
@@ -150,7 +152,10 @@ public class SPINModule {
 				String actionDescription=parent.getRequiredProperty(DCTerms.description).getString();
 				EweAction action=new EweAction(actionTitle,actionDescription);
 				action.execute();
-				//parent.remove();
+				//remove action from model
+				OntResource ontParent=this.newTriples.getOntResource(parent);
+				ontParent.remove();
+				
 				this.newTriples.write(System.out);
 
 
@@ -158,8 +163,21 @@ public class SPINModule {
 		} else {
 			System.out.println("No actions found");
 		}
+		//flush all events in model, even if they had not produced any actions
+		this.flushEvents();
 	}
 
+	private void flushEvents(){
+		int eventsToRemove=this.eventsInserted;
+		for(int i=eventsToRemove;i>0;i--){
+			Resource myEvent=this.ontModel.getResource("http://gsi.dit.upm.es/ontologies/ewe/ns/Event_"+this.eventsInserted);
+			OntResource ontEvent=this.ontModel.getOntResource(myEvent);
+			ontEvent.remove();
+			this.eventsInserted--;
+		}
+		
+	}
+	
 	public static void main (String [] args){
 		SPINModule SPNM =new SPINModule();
 		SPNM.runInferences();
