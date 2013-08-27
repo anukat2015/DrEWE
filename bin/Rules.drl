@@ -40,11 +40,12 @@ rule "Light Off"
 end
 rule "Bot-Luz"
 	when 
-		$newEvent: Event(source=="light_off") from entry-point entrada
-		$newEventOff: Event(source=="light_on", this after[0s,10s] $newEvent) from entry-point entrada
+		$newEvent: Event(source=="light_off") 
+		$newEventOff: Event(source=="light_on", this after[0s,10s] $newEvent) 
 	then
-        botFunction("Luz encendida");
 		System.out.println("Rule bot-luz triggered");
+        botFunction("Luz encendida");
+		
 end 
 
 rule "Dni"
@@ -52,14 +53,16 @@ rule "Dni"
 		$newDniEvent: DniEvent() from entry-point entrada
 	then
 		botFunction("Bienvenido al gsi "+$newDniEvent.getName());
+		System.out.println("Rule dni triggered by: "+$newDniEvent.getName());
 		
 end
 rule "Reunion"
 	when
-		$newDniEvent: DniEvent() from entry-point entrada
-		$newDniEventOther: DniEvent(this coincides[ 10s,0s ] $newDniEvent ) from entry-point entrada
+		$newDniEvento: DniEvent() from entry-point entrada
+		$newDniEventOther: DniEvent(this after[ 1s,10s ] $newDniEvento ) from entry-point entrada
 	then
-		//botFunction("Reunion: "+$newDniEvent.getName()+" y "+$newDniEventOther.getName());
+		botFunction("Reunion: "+$newDniEvento.getName()+" y "+$newDniEventOther.getName());
+		System.out.println("Rule Reuni—n triggered by: "+$newDniEvento.getName()+" y "+$newDniEventOther.getName());
 end
 	
 		

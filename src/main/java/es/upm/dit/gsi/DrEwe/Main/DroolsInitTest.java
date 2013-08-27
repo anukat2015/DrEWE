@@ -1,7 +1,8 @@
 package es.upm.dit.gsi.DrEwe.Main;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.Calendar;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 import org.drools.KnowledgeBase;
 import org.drools.KnowledgeBaseFactory;
@@ -17,30 +18,33 @@ import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.KnowledgeSessionConfiguration;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.conf.ClockTypeOption;
+import org.drools.time.SessionPseudoClock;
 
+import es.upm.dit.gsi.DrEwe.Beans.DniEvent;
+import es.upm.dit.gsi.DrEwe.Beans.LightEvent;
+import es.upm.dit.gsi.DrEwe.Beans.SPINEvent;
 import es.upm.dit.gsi.DrEwe.SPIN.SPINModule;
-import es.upm.dit.gsi.DrEwe.Utils.GsnToExpert;
+
 
 /**
  * This is a sample class to launch a rule.
  */
-public class DroolsInit {
+public class DroolsInitTest {
 
 	private static StatefulKnowledgeSession ksession;
 	
-    public static final void main(String[] args) {
+    @SuppressWarnings("restriction")
+	public static final void main(String[] args) {
         try {
             // load up the knowledge base
             KnowledgeBase kbase = readKnowledgeBase();
 
             KnowledgeSessionConfiguration conf = KnowledgeBaseFactory.newKnowledgeSessionConfiguration();
-            conf.setOption(ClockTypeOption.get("realtime"));
-             ksession = kbase.newStatefulKnowledgeSession(conf,null);
+            conf.setOption(ClockTypeOption.get("pseudo"));
+            ksession = kbase.newStatefulKnowledgeSession(conf,null);
             WorkingMemoryEntryPoint entryPoint = (WorkingMemoryEntryPoint) ksession.getWorkingMemoryEntryPoint("entrada");
-            
             SPINModule spinModule= new SPINModule();
             ksession.setGlobal("spinModule", spinModule);
-            
             KnowledgeRuntimeLogger logger = KnowledgeRuntimeLoggerFactory.newFileLogger(ksession, "test");
             // go !
             new Thread() {
@@ -49,22 +53,29 @@ public class DroolsInit {
             		ksession.fireUntilHalt();
             	}
             }.start();
-            final GsnToExpert gte=new GsnToExpert(entryPoint);
-            Timer timer = new Timer();
-            long delay=0;
-            long interval=1000;
-			timer.scheduleAtFixedRate(new TimerTask() {
-
-                @Override
-                public void run() {
-                	System.out.println("Updating events");
-            		gte.updateEvents(40);
-            		gte.updateLastCheck();
-                }
-
-            }, delay, interval);
-
             
+            SessionPseudoClock clock=ksession.getSessionClock();
+            
+            //Test Light
+            LightEvent lightEvent=new LightEvent("LightEvent", Calendar.getInstance(TimeZone.getTimeZone("UTC")), 100);
+            entryPoint.insert(lightEvent);
+            clock.advanceTime(5,TimeUnit.SECONDS);
+            
+            LightEvent lightOnEvent=new LightEvent("LightEvent", Calendar.getInstance(TimeZone.getTimeZone("UTC")), 1900);
+            entryPoint.insert(lightOnEvent);
+            clock.advanceTime(5,TimeUnit.SECONDS);
+            //Test Dni
+            DniEvent dniEventFirst=new DniEvent("DniEvent",Calendar.getInstance(TimeZone.getTimeZone("UTC")) , "Carlos Fresco", 1111111);
+            entryPoint.insert(dniEventFirst);
+            clock.advanceTime(5,TimeUnit.SECONDS);
+            
+            DniEvent dniEventSecond=new DniEvent("DniEvent",Calendar.getInstance(TimeZone.getTimeZone("UTC")) , "Miguel Crowned", 777777);
+            entryPoint.insert(dniEventSecond);
+            clock.advanceTime(5,TimeUnit.SECONDS);
+            
+            //Test SPIN
+            SPINEvent spinEvent=new SPINEvent("light_on","description test");
+            entryPoint.insert(spinEvent);
             
             logger.close();
         } catch (Throwable t) {
