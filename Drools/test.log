@@ -3,109 +3,114 @@
   <type>4</type>
   <activationId>Event Inserted [1, 0]</activationId>
   <rule>Event Inserted</rule>
-  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.LightEvent@18fa0939(1)</declarations>
+  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.LightEvent@20dc056(1)</declarations>
 </org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>6</type>
-  <activationId>Event Inserted [1, 0]</activationId>
-  <rule>Event Inserted</rule>
-  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.LightEvent@18fa0939(1)</declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ObjectLogEvent>
-  <type>1</type>
-  <factId>1</factId>
-  <objectToString>es.upm.dit.gsi.DrEwe.Beans.LightEvent@18fa0939</objectToString>
-</org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>4</type>
   <activationId>Light On [1, 0]</activationId>
   <rule>Light On</rule>
-  <declarations>$newEvent0=es.upm.dit.gsi.DrEwe.Beans.LightEvent@18fa0939(1)</declarations>
+  <declarations>$newEvent0=es.upm.dit.gsi.DrEwe.Beans.LightEvent@20dc056(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>Light On [1, 0]</activationId>
+  <rule>Light On</rule>
+  <declarations>$newEvent0=es.upm.dit.gsi.DrEwe.Beans.LightEvent@20dc056(1)</declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
+  <factId>1</factId>
+  <objectToString>es.upm.dit.gsi.DrEwe.Beans.LightEvent@20dc056</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
   <factId>2</factId>
-  <objectToString>es.upm.dit.gsi.DrEwe.Beans.LightEvent@22b601e1</objectToString>
+  <objectToString>es.upm.dit.gsi.DrEwe.Beans.LightEvent@1dbecdb3</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>4</type>
   <activationId>Event Inserted [2, 0]</activationId>
   <rule>Event Inserted</rule>
-  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.LightEvent@22b601e1(2)</declarations>
+  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.LightEvent@1dbecdb3(2)</declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>4</type>
   <activationId>Light Off [2, 0]</activationId>
   <rule>Light Off</rule>
-  <declarations>$newEvent0=es.upm.dit.gsi.DrEwe.Beans.LightEvent@22b601e1(2)</declarations>
+  <declarations>$newEvent0=es.upm.dit.gsi.DrEwe.Beans.LightEvent@1dbecdb3(2)</declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>3</factId>
-  <objectToString>es.upm.dit.gsi.DrEwe.Beans.DniEvent@4aaabe0d</objectToString>
+  <objectToString>es.upm.dit.gsi.DrEwe.Beans.DniEvent@59b2b206</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>4</type>
   <activationId>Event Inserted [3, 0]</activationId>
   <rule>Event Inserted</rule>
-  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.DniEvent@4aaabe0d(3)</declarations>
+  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.DniEvent@59b2b206(3)</declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>4</type>
   <activationId>Dni [3, 0]</activationId>
   <rule>Dni</rule>
-  <declarations>$newDniEvent=es.upm.dit.gsi.DrEwe.Beans.DniEvent@4aaabe0d(3)</declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>7</type>
-  <activationId>Event Inserted [1, 0]</activationId>
-  <rule>Event Inserted</rule>
-  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.LightEvent@18fa0939(1)</declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>6</type>
-  <activationId>Dni [3, 0]</activationId>
-  <rule>Dni</rule>
-  <declarations>$newDniEvent=es.upm.dit.gsi.DrEwe.Beans.DniEvent@4aaabe0d(3)</declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ObjectLogEvent>
-  <type>1</type>
-  <factId>4</factId>
-  <objectToString>es.upm.dit.gsi.DrEwe.Beans.DniEvent@52dfa97d</objectToString>
-</org.drools.audit.event.ObjectLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>4</type>
-  <activationId>Event Inserted [4, 0]</activationId>
-  <rule>Event Inserted</rule>
-  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.DniEvent@52dfa97d(4)</declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>4</type>
-  <activationId>Dni [4, 0]</activationId>
-  <rule>Dni</rule>
-  <declarations>$newDniEvent=es.upm.dit.gsi.DrEwe.Beans.DniEvent@52dfa97d(4)</declarations>
-</org.drools.audit.event.ActivationLogEvent>
-<org.drools.audit.event.ActivationLogEvent>
-  <type>4</type>
-  <activationId>Reunion [4, 3, 0]</activationId>
-  <rule>Reunion</rule>
-  <declarations>$newDniEventOther=es.upm.dit.gsi.DrEwe.Beans.DniEvent@52dfa97d(4); $newDniEvento=es.upm.dit.gsi.DrEwe.Beans.DniEvent@4aaabe0d(3)</declarations>
+  <declarations>$newDniEvent=es.upm.dit.gsi.DrEwe.Beans.DniEvent@59b2b206(3)</declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ObjectLogEvent>
   <type>1</type>
   <factId>5</factId>
-  <objectToString>es.upm.dit.gsi.DrEwe.Beans.SPINEvent@589a07cc</objectToString>
+  <objectToString>es.upm.dit.gsi.DrEwe.Beans.DniEvent@4c37d30d</objectToString>
 </org.drools.audit.event.ObjectLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>4</type>
   <activationId>Event Inserted [5, 0]</activationId>
   <rule>Event Inserted</rule>
-  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.SPINEvent@589a07cc(5)</declarations>
+  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.DniEvent@4c37d30d(5)</declarations>
 </org.drools.audit.event.ActivationLogEvent>
 <org.drools.audit.event.ActivationLogEvent>
   <type>4</type>
-  <activationId>SPINRule [5, 0]</activationId>
+  <activationId>Dni [5, 0]</activationId>
+  <rule>Dni</rule>
+  <declarations>$newDniEvent=es.upm.dit.gsi.DrEwe.Beans.DniEvent@4c37d30d(5)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Reunion [5, 3, 0]</activationId>
+  <rule>Reunion</rule>
+  <declarations>$newDniEventOther=es.upm.dit.gsi.DrEwe.Beans.DniEvent@4c37d30d(5); $newDniEvento=es.upm.dit.gsi.DrEwe.Beans.DniEvent@59b2b206(3)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>6</factId>
+  <objectToString>es.upm.dit.gsi.DrEwe.Beans.SPINEvent@65012192</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>Event Inserted [6, 0]</activationId>
+  <rule>Event Inserted</rule>
+  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.SPINEvent@65012192(6)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>4</type>
+  <activationId>SPINRule [6, 0]</activationId>
   <rule>SPINRule</rule>
-  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.SPINEvent@589a07cc(5)</declarations>
+  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.SPINEvent@65012192(6)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ObjectLogEvent>
+  <type>1</type>
+  <factId>4</factId>
+  <objectToString>es.upm.dit.gsi.DrEwe.Beans.Event@3171c7df</objectToString>
+</org.drools.audit.event.ObjectLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>7</type>
+  <activationId>Light On [1, 0]</activationId>
+  <rule>Light On</rule>
+  <declarations>$newEvent0=es.upm.dit.gsi.DrEwe.Beans.LightEvent@20dc056(1)</declarations>
+</org.drools.audit.event.ActivationLogEvent>
+<org.drools.audit.event.ActivationLogEvent>
+  <type>6</type>
+  <activationId>SPINRule [6, 0]</activationId>
+  <rule>SPINRule</rule>
+  <declarations>$newEvent=es.upm.dit.gsi.DrEwe.Beans.SPINEvent@65012192(6)</declarations>
 </org.drools.audit.event.ActivationLogEvent>
 </object-stream>
