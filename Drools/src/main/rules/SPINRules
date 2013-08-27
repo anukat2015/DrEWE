@@ -1,0 +1,17 @@
+CONSTRUCT{
+	ewe:Action_1 dcterms:title "bot" .
+	ewe:Action_1 dcterms:description ?description .
+}
+WHERE {
+	?event dcterms:title "light_on" .
+	?event dcterms:description ?description .
+}
+---------------------
+CONSTRUCT{
+	ewe:Action_2 dcterms:title "botiiiiiiii" .
+	ewe:Action_2 dcterms:description ?description .
+}
+WHERE {
+	?event dcterms:title "light_on" .
+	?event dcterms:description ?description .
+}
