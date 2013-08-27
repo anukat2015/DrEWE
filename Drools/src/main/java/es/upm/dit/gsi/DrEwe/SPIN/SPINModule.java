@@ -81,20 +81,21 @@ public class SPINModule {
 		String title=event.getTitle();
 		String description=event.getDescription();
 		eventsInserted++;
-		Resource myEvent=this.ontModel.createResource("http://gsi.dit.upm.es/ontologies/ewe/ns/Event_"+this.eventsInserted);
+		String eventsNs=this.prop.getProperty("events-ns");
+		Resource myEvent=this.ontModel.createResource(eventsNs+"_"+this.eventsInserted);
 		
 		myEvent.addProperty(DCTerms.title, title);
 		myEvent.addProperty(DCTerms.description, description);
 
 		System.out.println("Inserting event: "+title+" , "+description);
 
-		String eventsNs=this.prop.getProperty("events-ns");
+		
 		myEvent.addProperty(RDF.type, ontModel.getResource(eventsNs));
 
 
 	}
 
-	public void loadRules(){
+	private void loadRules(){
 
 		try{
 
@@ -183,5 +184,30 @@ public class SPINModule {
 		SPNM.runInferences();
 
 	}
+	public OntModel getOntModel() {
+		return ontModel;
+	}
+	public void setOntModel(OntModel ontModel) {
+		this.ontModel = ontModel;
+	}
+	public int getEventsInserted() {
+		return eventsInserted;
+	}
+	public void setEventsInserted(int eventsInserted) {
+		this.eventsInserted = eventsInserted;
+	}
+	public Properties getProp() {
+		return prop;
+	}
+	public void setProp(Properties prop) {
+		this.prop = prop;
+	}
+	public OntModel getNewTriples() {
+		return newTriples;
+	}
+	public void setNewTriples(OntModel newTriples) {
+		this.newTriples = newTriples;
+	}
+	
 
 }
