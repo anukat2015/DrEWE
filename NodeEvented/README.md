@@ -20,7 +20,7 @@ This node module is able to:
 
   - deploy a conversational bot at `GET /bot`
   - post tweets to botgsi twitter account at `POST /post-tweet?query.tweet=`
-  - send en email to a given set of directions at `POST /email?text=""&subject=""&to="... , ... , ..."
+  - send en email to a given set of directions at `POST /email?text=""&subject=""&to="... , ... , ..."`
 
   - send light events to Drools via socket.io at `POST /light?body=`
   - send events to Drools by pressing buttons via socket.io at `GET /`
