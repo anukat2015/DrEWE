@@ -4,9 +4,14 @@ import es.upm.dit.gsi.DrEwe.Beans.Event;
 import es.upm.dit.gsi.DrEwe.Beans.LightEvent;
 import es.upm.dit.gsi.DrEwe.Beans.DniEvent;
 import es.upm.dit.gsi.DrEwe.Beans.SPINEvent;
+import es.upm.dit.gsi.DrEwe.Beans.CalendarEvent;
+import es.upm.dit.gsi.DrEwe.Beans.User;
 import  es.upm.dit.gsi.DrEwe.Utils.Bot;
 import  es.upm.dit.gsi.DrEwe.Utils.Twitter;
+import  es.upm.dit.gsi.DrEwe.Utils.UserFactory;
 import es.upm.dit.gsi.DrEwe.SPIN.SPINModule;
+
+import java.util.Calendar;
 
 global es.upm.dit.gsi.DrEwe.SPIN.SPINModule spinModule;
  
@@ -18,6 +23,12 @@ declare LightEvent
 end
 declare DniEvent
 	@role(event)
+end
+
+declare CalendarEvent
+	@role(event)
+	@timestamp(droolsTimeStamp)
+	@duration(droolsDuration)
 end
  
 rule "Event Inserted"
@@ -80,8 +91,38 @@ rule "SPINRule"
 		spinModule.runInferences();
 		spinModule.checkActions();
 end
-		
 
+rule "Use case reunion 2 people"
+	when
+		$newEventReunion: CalendarEvent() from entry-point entrada
+		$newEventDni : DniEvent(this during $newEventReunion) from entry-point entrada
+		$newEventDni2: DniEvent(this after[ 1s,20m ] $newEventDni ) from entry-point entrada
+
+		eval(checkAttendees($newEventReunion,$newEventDni,$newEventDni2))
+		
+	then
+		System.out.println("Use case rule triggered**************************************");
+end
+
+		
+function boolean checkAttendees(CalendarEvent calendarEvent, DniEvent dniEvent1, DniEvent dniEvent2){
+	boolean [] hasPassed={false,false};
+	String[] attendees=calendarEvent.getAttendees();
+	UserFactory userFactory=new UserFactory();
+	User user1=userFactory.getUser(dniEvent1.getName());
+	User user2=userFactory.getUser(dniEvent2.getName());
+	
+	
+	if(attendees[0].equals(user1.getEmail())||attendees[1].equals(user1.getEmail())){
+		hasPassed[0]=true;			
+	}
+	if(attendees[0].equals(user2.getEmail())||attendees[1].equals(user2.getEmail())){
+		hasPassed[1]=true;			
+	}
+	
+	
+	return (hasPassed[0]&&hasPassed[1]);
+}
 function void botFunction(String message){
 		Bot bot = new Bot();
 		bot.send(message);

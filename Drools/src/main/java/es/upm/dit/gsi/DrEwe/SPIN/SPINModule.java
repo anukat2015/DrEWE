@@ -129,7 +129,7 @@ public class SPINModule {
 			fileData.append(readData);
 		}
 		reader.close();
-		System.out.println("Readed: \n"+fileData.toString());
+		//System.out.println("Readed: \n"+fileData.toString());
 		return fileData.toString();
 	}
 

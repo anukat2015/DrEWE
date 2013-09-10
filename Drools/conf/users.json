@@ -1,0 +1,18 @@
+{
+    "users": [
+        {"user":"MiguelTest",
+        "mapping":{
+            "email":"miguelcrowned@gmail.com",
+            "dni_name":"Miguel Crowned",
+            "twitter":"kiril83"
+            }
+        },
+        {"user":"CarlosTest",
+        "mapping":{
+            "email":"carlos.tempog@gmail.com",
+            "dni_name":"Carlos Fresco",
+            "twitter":"carloscrespog"
+            }
+        }
+    ]
+}
