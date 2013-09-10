@@ -1,3 +1,5 @@
+#!/bin/bash
 #sleep 3s
-sudo raspistill -o image.jpg
-scp image.jpg carloscrespog@192.168.1.115:/Users/carloscrespog/Pictures/rasp
+sudo raspistill -o camera.jpg
+scp camera.jpg carloscrespog@192.168.1.128:/Volumes/Job/GSI/PFC/workspacePFC/NodeEvented/public/img
+
