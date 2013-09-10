@@ -3,6 +3,7 @@ package es.upm.dit.gsi.DrEwe.Beans;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.TimeZone;
 
 import org.w3c.dom.DOMException;
@@ -14,16 +15,55 @@ public class CalendarEvent extends Event {
 	private String title;
 	private String [] attendees;
 	private Calendar start;
-	private int number;
+	private Date droolsTimeStamp;
+	private long droolsDuration;
 
 
 	public CalendarEvent(String source, Calendar timeStamp, String title,
-			String[] attendees, Calendar start, int number) {
+			String[] attendees, Calendar start) {
 		super(source, timeStamp);
 		this.title = title;
 		this.attendees = attendees;
 		this.start = start;
-		this.number = number;
+		//Set the drools TimeStamp 10 minutes earlier
+		Calendar startCopy=start;
+		startCopy.roll(Calendar.MINUTE, -10);
+		this.droolsTimeStamp=start.getTime();
+		
+		this.droolsDuration=1200000;
+
+	}
+
+
+	public CalendarEvent(String source, Calendar timeStamp, String title,
+			String[] attendees, Calendar start, Date droolsTimeStamp,
+			long droolsDuration) {
+		super(source, timeStamp);
+		this.title = title;
+		this.attendees = attendees;
+		this.start = start;
+		this.droolsTimeStamp = droolsTimeStamp;
+		this.droolsDuration = droolsDuration;
+	}
+
+
+	public long getDroolsDuration() {
+		return droolsDuration;
+	}
+
+
+	public void setDroolsDuration(long duration) {
+		this.droolsDuration = duration;
+	}
+
+
+	public Date getDroolsTimeStamp() {
+		return droolsTimeStamp;
+	}
+
+
+	public void setDroolsTimeStamp(Date droolsTimeStamp) {
+		this.droolsTimeStamp = droolsTimeStamp;
 	}
 
 
@@ -57,14 +97,6 @@ public class CalendarEvent extends Event {
 	}
 
 
-	public int getNumber() {
-		return number;
-	}
-
-
-	public void setNumber(int number) {
-		this.number = number;
-	}
 
 
 	public CalendarEvent(Node nNode){
@@ -95,6 +127,10 @@ public class CalendarEvent extends Event {
 					
 					calStart.setTime(sdfStart.parse(toParse));
 					this.start=calStart;
+					
+					Calendar startCopy=start;
+					startCopy.roll(Calendar.MINUTE, -5);
+					this.droolsTimeStamp=startCopy.getTime();
 				} catch (DOMException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

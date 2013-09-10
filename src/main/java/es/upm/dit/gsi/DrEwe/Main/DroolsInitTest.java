@@ -1,6 +1,7 @@
 package es.upm.dit.gsi.DrEwe.Main;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
@@ -20,14 +21,14 @@ import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.conf.ClockTypeOption;
 import org.drools.time.SessionPseudoClock;
 
+import es.upm.dit.gsi.DrEwe.Beans.CalendarEvent;
 import es.upm.dit.gsi.DrEwe.Beans.DniEvent;
 import es.upm.dit.gsi.DrEwe.Beans.LightEvent;
-import es.upm.dit.gsi.DrEwe.Beans.SPINEvent;
 import es.upm.dit.gsi.DrEwe.SPIN.SPINModule;
 
 
 /**
- * This is a sample class to launch a rule.
+ * This is a the init test class, without GSN
  */
 public class DroolsInitTest {
 
@@ -74,8 +75,26 @@ public class DroolsInitTest {
             clock.advanceTime(5,TimeUnit.SECONDS);
             
             //Test SPIN
-            SPINEvent spinEvent=new SPINEvent("light_on","description test");
-            entryPoint.insert(spinEvent);
+//            SPINEvent spinEvent=new SPINEvent("light_on","description test");
+//            entryPoint.insert(spinEvent);
+            
+            String[] attendees={"carlos.tempog@gmail.com","miguelcrowned@gmail.com"};
+            Calendar now=Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+            Calendar reunionTime=Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+//            reunionTime.roll(Calendar.MINUTE, 15);
+            clock.advanceTime(20,TimeUnit.MINUTES);
+            long droolsDuration=1200000;
+            CalendarEvent calendarEvent=new CalendarEvent("CalendarEvent",now,"Meeting",attendees,reunionTime, new Date(clock.getCurrentTime()),droolsDuration);
+            entryPoint.insert(calendarEvent);
+            clock.advanceTime(5,TimeUnit.SECONDS);
+            
+            DniEvent dniEventThird=new DniEvent("DniEvent",Calendar.getInstance(TimeZone.getTimeZone("UTC")) , "Miguel Crowned", 777777);
+            entryPoint.insert(dniEventThird);
+            clock.advanceTime(5,TimeUnit.SECONDS);
+            
+            DniEvent dniEventFourth=new DniEvent("DniEvent",Calendar.getInstance(TimeZone.getTimeZone("UTC")) , "Carlos Fresco", 777777);
+            entryPoint.insert(dniEventFourth);
+            
             
             logger.close();
         } catch (Throwable t) {
