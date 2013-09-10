@@ -20,12 +20,23 @@ This node module is able to:
 
   - deploy a conversational bot at `GET /bot`
   - post tweets to botgsi twitter account at `POST /post-tweet?query.tweet=`
-
+  - send en email to a given set of directions at `POST /email?text=""&subject=""&to="... , ... , ..."
 
   - send light events to Drools via socket.io at `POST /light?body=`
   - send events to Drools by pressing buttons via socket.io at `GET /`
   - an old but pretty drools' rules composer at `GET /composer` that send them to the drools module via socket.io
 
+
+## How to configure
+
+Inside the config.js you can find six important parameters:
+
+  - consumer_key: consumer key for twitter,
+  - consumer_secret: consumer secret for twitter,
+  - access_token_key: access token fot twitter for the user who is going to post tweets,
+  - access_token_secret: access token secret, same as above,
+  - email_user: email who will send the message,
+  - email_password: password for the email
 
 
 ## License
