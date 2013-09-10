@@ -58,7 +58,7 @@ public class DroolsInit {
                 @Override
                 public void run() {
                 	System.out.println("Updating events");
-            		gte.updateEvents(40);
+            		gte.updateEvents(10);
             		gte.updateLastCheck();
                 }
 

@@ -53,9 +53,7 @@ public class Twitter {
 	}
 	public static void main (String []args){
 		Twitter twitter = new Twitter();
-		twitter.send("holiiiiii");
-		twitter.send("holiiiiii");
-		twitter.send("holiiiiii");
-		twitter.send("holiiiiii");
+		twitter.send("test");
+
 	}
 }

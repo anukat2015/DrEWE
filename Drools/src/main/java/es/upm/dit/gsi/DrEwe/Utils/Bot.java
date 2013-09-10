@@ -48,9 +48,7 @@ public class Bot {
 	}
 	public static void main (String []args){
 		Bot bot = new Bot();
-		bot.send("holiiiiii");
-		bot.send("holiiiiii");
-		bot.send("holiiiiii");
-		bot.send("holiiiiii");
+		bot.send("test");
+
 	}
 }
