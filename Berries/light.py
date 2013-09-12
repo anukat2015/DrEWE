@@ -1,5 +1,9 @@
 #!/usr/local/bin/python
 
+# This Python script sends the light level to a GSN server.
+# The data acquisition is made via a RC circuit attached to a given pin,
+# because of the lack of analog inputs in the raspberry, this script sets 
+# a given entry as low and counts the loop's cycles that it spends discharging.
 
 import RPi.GPIO as GPIO, time
 import urllib2
@@ -29,6 +33,7 @@ def RCtime (PiPin):
 
 # Main program loop
 while True:
+  # gsn server 
   gsnserver='http://192.168.1.115:22001/streaming'
   print RCtime(17) # Measure timing using GPIO17
   stream=''
@@ -69,7 +74,6 @@ while True:
   opener = urllib2.build_opener(urllib2.HTTPHandler)
   request.get_method = lambda: 'PUT'
   url = opener.open(request)
-#  params = urllib.urlencode(params)
- # f = urllib.urlopen("http://192.168.1.116:3000/light", params)
+
   time.sleep(1)
   
