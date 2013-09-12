@@ -1,4 +1,9 @@
 #!/usr/bin/python
+
+# This Python script simply creates an accesible server at a given port when you can 
+# access the last photo taken by the raspberry via motion.
+
+
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 from os import curdir, sep
 
