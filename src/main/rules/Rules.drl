@@ -9,6 +9,7 @@ import es.upm.dit.gsi.DrEwe.Beans.User;
 import  es.upm.dit.gsi.DrEwe.Utils.Bot;
 import  es.upm.dit.gsi.DrEwe.Utils.Twitter;
 import  es.upm.dit.gsi.DrEwe.Utils.UserFactory;
+import  es.upm.dit.gsi.DrEwe.Utils.Email;
 import es.upm.dit.gsi.DrEwe.SPIN.SPINModule;
 
 import java.util.Calendar;
@@ -23,6 +24,7 @@ declare LightEvent
 end
 declare DniEvent
 	@role(event)
+
 end
 
 declare CalendarEvent
@@ -31,6 +33,7 @@ declare CalendarEvent
 	@duration(droolsDuration)
 end
  
+ 
 rule "Event Inserted"
 	when
 		$newEvent: Event() from entry-point entrada
@@ -38,6 +41,7 @@ rule "Event Inserted"
 	then
 		System.out.println("New Event received from: "+$newEvent.getSource() );
 end
+/*
 rule "Light On" 
 	when 
 		$newEvent0: LightEvent(value<1000) from entry-point entrada 
@@ -91,7 +95,7 @@ rule "SPINRule"
 		spinModule.runInferences();
 		spinModule.checkActions();
 end
-
+*/
 rule "Use case reunion 2 people"
 	when
 		$newEventReunion: CalendarEvent() from entry-point entrada
@@ -101,10 +105,27 @@ rule "Use case reunion 2 people"
 		eval(checkAttendees($newEventReunion,$newEventDni,$newEventDni2))
 		
 	then
+		botFunction("Reunion lista para empezar");
 		System.out.println("Use case rule triggered**************************************");
 end
 
 		
+rule "Calendar timestamp"
+	when
+		$newEventReunion: CalendarEvent() from entry-point entrada
+	then
+		System.out.println("calendar start:"+$newEventReunion.getDroolsTimeStamp().toString());
+end
+
+rule "Dni timestamp"
+	when
+		$newDniEvent: DniEvent() from entry-point entrada
+	then
+		
+		System.out.println("Dni timestamp: "+$newDniEvent.getTimeStamp().getTime().toString());
+		
+end
+
 function boolean checkAttendees(CalendarEvent calendarEvent, DniEvent dniEvent1, DniEvent dniEvent2){
 	boolean [] hasPassed={false,false};
 	String[] attendees=calendarEvent.getAttendees();
@@ -131,4 +152,8 @@ function void botFunction(String message){
 function void twitterFunction(String message){
 	Twitter twitter = new Twitter();
 	twitter.send(message);
+}
+function void emailFunction(String text,String[] to,String subject){
+	Email email = new Email();
+	email.send(text,to,subject);
 }

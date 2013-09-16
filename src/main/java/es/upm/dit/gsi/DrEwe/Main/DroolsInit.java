@@ -1,5 +1,6 @@
 package es.upm.dit.gsi.DrEwe.Main;
 
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -17,6 +18,8 @@ import org.drools.logger.KnowledgeRuntimeLoggerFactory;
 import org.drools.runtime.KnowledgeSessionConfiguration;
 import org.drools.runtime.StatefulKnowledgeSession;
 import org.drools.runtime.conf.ClockTypeOption;
+import org.drools.time.SessionClock;
+import org.drools.time.SessionPseudoClock;
 
 import es.upm.dit.gsi.DrEwe.SPIN.SPINModule;
 import es.upm.dit.gsi.DrEwe.Utils.GsnToExpert;
@@ -52,14 +55,17 @@ public class DroolsInit {
             final GsnToExpert gte=new GsnToExpert(entryPoint);
             Timer timer = new Timer();
             long delay=0;
-            long interval=1000;
+            long interval=3000;
+            final SessionClock clock=ksession.getSessionClock();
 			timer.scheduleAtFixedRate(new TimerTask() {
 
                 @Override
                 public void run() {
                 	System.out.println("Updating events");
-            		gte.updateEvents(10);
+            		gte.updateEvents(2);
             		gte.updateLastCheck();
+            		Date d=new Date(clock.getCurrentTime());
+            		System.out.println("Clock: "+d.toString());
                 }
 
             }, delay, interval);
