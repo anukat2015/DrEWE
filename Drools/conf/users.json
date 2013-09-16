@@ -13,6 +13,20 @@
             "dni_name":"Carlos Fresco",
             "twitter":"carloscrespog"
             }
+        },
+        {"user":"Carlos",
+        "mapping":{
+            "email":"carlos.crespog@gmail.com",
+            "dni_name":"CARLOS CRESPO",
+            "twitter":"carloscrespog"
+            }
+        },
+        {"user":"Miguel",
+        "mapping":{
+            "email":"miguelcb84@gmail.com",
+            "dni_name":"MIGUEL CORONADO",
+            "twitter":"kiril84"
+            }
         }
     ]
 }

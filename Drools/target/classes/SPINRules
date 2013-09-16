@@ -8,10 +8,10 @@ WHERE {
 }
 ---------------------
 CONSTRUCT{
-	ewe:Action_2 dcterms:title "botiiiiiiii" .
+	ewe:Action_2 dcterms:title " " .
 	ewe:Action_2 dcterms:description ?description .
 }
 WHERE {
-	?event dcterms:title "light_on" .
+	?event dcterms:title " " .
 	?event dcterms:description ?description .
 }

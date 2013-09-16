@@ -129,8 +129,9 @@ public class CalendarEvent extends Event {
 					this.start=calStart;
 					
 					Calendar startCopy=start;
-					startCopy.roll(Calendar.MINUTE, -5);
+					startCopy.roll(Calendar.MINUTE, -10);
 					this.droolsTimeStamp=startCopy.getTime();
+					this.droolsDuration=1200000;
 				} catch (DOMException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
