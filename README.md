@@ -26,8 +26,17 @@ GSN is a middleware (extendible software infrastructure) for rapid deployment an
 
 Under this subtree lays the module in charge of taking care of the actions such as twitter connection, email connection, web bot...
 
+### [GCalendar-DrEWE](https://github.com/carloscrespog/GCalendar-DrEWE)
 
+A Node.js module that simplifies the use of RESTful Google Calendar API without any interaction with the user, retrieve all events on a given calendar and send them to a GSN server. Before sending the events, it checks if it has already been added.
 
+##Arquitecture
+
+Under this diagram, you can see the DrEWE arquitecture at a glance
+
+![DrEWE full](https://dl.dropboxusercontent.com/u/25002167/DrEWE%20full.png)
+
+For a detailed explanation of each module, visit the subprojects repos.
 
 ## License
 
