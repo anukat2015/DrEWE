@@ -12,11 +12,11 @@ DrEWE consist in four main modules or projects that can be found under the subtr
 
 ### [Berries](https://github.com/carloscrespog/DrEWE/tree/master/Berries)
 
-Raspberry Pi software 
+Raspberry's scripts and modules that communicate with GSN and/or SPIN to produce events, make actions and handle requests.
 
 ### [Drools](https://github.com/carloscrespog/DrEWE/tree/master/Drools)
 
-Module in charge of processing events and ordering actions. It consists in two different rule engines that work together: the Drools-based engine and the SPIN-based engine
+Module in charge of processing events and ordering actions. It consists in two different rule engines that work together: the Drools-based engine and the SPIN-based engine.
 
 ### [GSN](https://github.com/carloscrespog/DrEWE/tree/master/GSN)
 
@@ -24,7 +24,7 @@ GSN is a middleware (extendible software infrastructure) for rapid deployment an
 
 ### [NodeEvented](https://github.com/carloscrespog/DrEWE/tree/master/NodeEvented)
 
-Under this subtree lays the module in charge of taking care of the actions such as twitter connection, email connection, web bot...
+Node.js module in charge of generate events and process actions. Connected with Drools module and GSN module.
 
 ### [GCalendar-DrEWE](https://github.com/carloscrespog/GCalendar-DrEWE)
 
@@ -36,7 +36,7 @@ Under this diagram, you can see the DrEWE arquitecture at a glance
 
 ![DrEWE full](https://dl.dropboxusercontent.com/u/25002167/DrEWE%20full.png)
 
-For a detailed explanation of each module, visit the subprojects repos.
+For a detailed explanation of each module, you can visit each subproject's repository.
 
 ## License
 
