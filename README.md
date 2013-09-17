@@ -79,7 +79,7 @@ For a detailed explanation of each module, you can visit each subproject's repos
 ## License
 
 ```
-Copyright 2012 UPM-GSI: Group of Intelligent Systems - Universidad Politécnica de Madrid (UPM)
+Copyright 2013 UPM-GSI: Group of Intelligent Systems - Universidad Politécnica de Madrid (UPM)
 
 Licensed under the Apache License, Version 2.0 (the "License"); 
 You may not use this file except in compliance with the License. 
