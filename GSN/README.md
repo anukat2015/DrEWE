@@ -2,6 +2,9 @@
 
 
 DrEWE files related to GSN. In this repo we only provide the virual sensor's files that we use in the project [DrEWE](https://github.com/carloscrespog/DrEWE)
+
+![GSN](https://dl.dropboxusercontent.com/u/25002167/EWE%20repo/DrEWE%20full%20-%20GSN.png)
+
 ##Implemented virtual sensors
 
 ###Calendar Virtual Sensor
@@ -156,10 +159,7 @@ A virtual sensor may have any number of input data streams and produces exactly 
 	- Click on the Run button on the toolbar
 	- The GNS application should display "GSN Starting . . . " in the console
 	- Open a web browser and browse to http://localhost:22001 and verify that the GSN server is working.
-	- Stop the running GSN using the ant Stop task
-	- Insert a breakpoint in the first line of the Main class
-	- Start the application from the "Debug" button on the Eclipse toolbar
-	- GSN should start in the Eclipse Debug perspective and pause at the breakpoint
+
 
 Now you can debug your virtual sensors in eclipse, try it by setting a break point on a line in the main file.
 
