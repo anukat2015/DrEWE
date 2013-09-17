@@ -3,7 +3,7 @@
 
 Drools module for DrEWE project. It launches the drools environment, the SPIN module and the GSNToExpert module. It also is in charge of loading both drools and SPIN rules. 
 
-![Drools Arq](https://dl.dropboxusercontent.com/u/25002167/DrEWE%20drools.png)
+![Drools Arq](https://dl.dropboxusercontent.com/u/25002167/EWE%20repo/DrEWE%20full%20-%20Drools.png)
 
 ###GSN To Expert
 This module is in charge of retrieving events from GSN and inserting them into the drools rule engine. All the data in GSN is accesible via HTTP, so it is retrieved via GET requests and inserted in the Drools engine via an 'entry point', which is is one of the features of Drools Fusion, the CEP (complex event processing) module of the Drools suite.
