@@ -2,7 +2,7 @@
 
 
 Raspberry's scripts and modules that communicate with GSN and/or SPIN to produce events, make actions and handle requests.
-
+![Berries](https://dl.dropboxusercontent.com/u/25002167/EWE%20repo/DrEWE%20full%20-%20Berries.png)
 ## Retrieving the dni log
 
 The script in charge of this task is dni.sh. This script checks the last person that has inserted its dni at the laboratory door,
