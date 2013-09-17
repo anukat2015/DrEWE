@@ -1,8 +1,11 @@
 # [NodeEvented-DrEWE](https://github.com/carloscrespog/NodeEvented-DrEWE)
 
 
-Node.js module in charge of generate events and process actions. Connected with Drools module and GSN module
+Node.js module in charge of generate events and process actions. Connected with Drools module and GSN module.
 
+It is written in node and uses the main advantage of this modern programming language: the low latency. So once a rule is triggered under the Drools or SPIN engine, it only will take fractions of a second to perform high level actions such as post a tweet, order the camera to take a photo or make the bot talk something.
+
+![NodeEvented](https://dl.dropboxusercontent.com/u/25002167/EWE%20repo/DrEWE%20full%20-%20NodeEvented.png)
 ## How to Install
 
 ```bash

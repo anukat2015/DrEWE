@@ -11,13 +11,25 @@ $(document).ready(function() {
 
 	$(document.body).keypress(function(event){
 		if ( event.which == 32 ) {
+			//press spacebar
 			event.preventDefault();
 			console.log("success");
 			clearMessages();
+		}else if(event.which == 112){
+			//press p
+			event.preventDefault();
+			console.log("success");
+			takePhoto();
 		}
 	});
 	function clearMessages(){
 		$("#bot-text").empty();
+	}
+	function takePhoto(){
+		//Raspberry url
+		
+		msgReceived('<img src="http://192.168.1.132:8088"/>');
+		
 	}
 	function msgReceived(msg){
 		//console.log(msg);

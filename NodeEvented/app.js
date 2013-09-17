@@ -93,8 +93,29 @@
   extSocket=socket;
   //socket.emit('news', { hello: 0 });
   socket.on('hola', function (data) {
-    console.log(data);
+    
+  //   var options = {
+  //     hotname:'http://192.168.1.132',
+  //     port: 8080,
+  //     path: '/0/action/snapshot',
+  //     method: 'GET',
+
+  //   };
+
+
+  //   var req = http.request(options, function(res) {
+  //     console.log('STATUS: ' + res.statusCode);
+  //     console.log('Item sent to GSN');
+  //     res.setEncoding('utf8');
+
+  //   });
+  //   req.on('error', function(e) {
+  //     console.log('problem with request: ' + e.message);
+  //   });
+  //   console.log('******************');
+  //   req.end();
   });
+
 });
  app.post('/event',function(req,res){
   //console.log(req.body.source);
