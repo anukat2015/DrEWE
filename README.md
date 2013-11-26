@@ -22,7 +22,7 @@ Task Automation is a rising area: recently lots of different web services and mo
 So, if all these task automation services could be standardized under the EWE ontology, we would have interoperability between each platform and we would find really interesting features, such as compatibility for task rules no matter the source, or a huge semantic database that will provide all the advantages that big data is bringing to our lives.
 
 ## Submodules
-DrEWE consist in five main modules or projects that can be found under the subtrees of this project.
+DrEWE consists of five main modules or projects that can be found under the subtrees of this project.
 
 ### [GCalendar-DrEWE](https://github.com/carloscrespog/GCalendar-DrEWE)
 
@@ -56,7 +56,7 @@ In DrEWE project, we use GSN as an event network that is a little bit different 
 
 ### [Drools-DrEWE](https://github.com/carloscrespog/DrEWE/tree/master/Drools)
 
-This is the module in charge of processing events and ordering actions. It consists in two different rule engines that work together: the Drools-based engine and the SPIN-based engine. Each of them has a purpose and a reason to be here in DrEWE:
+This is the module in charge of processing events and ordering actions. It consists of two different rule engines that work together: the Drools-based engine and the SPIN-based engine. Each of them has a purpose and a reason to be here in DrEWE:
 
 The Drools engine is a well known rule engine that provides Complex Event Processing thanks to its Fusion module. Although, once deployed this module comes with a software that automatically retrieve the data inside GSN and push it into Drools as timed events, enabling us to use all the powerful CEP features.
 
