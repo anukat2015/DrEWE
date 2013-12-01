@@ -1,13 +1,13 @@
 [DrEWE](https://github.com/carloscrespog/DrEWE)
 =====
 ![DrEWE Logo](https://dl.dropboxusercontent.com/u/25002167/DrEWE.png)
-An intelligent platform for task automation
+An intelligent platform for task automation. [Watch the video](http://www.youtube.com/watch?v=puYZ0vmJ8a0)
 
 ## Introduction
 
 
 
-DrEWE is a task automation platform. It works in a similar way to [IFTTT](http://www.ifttt.com), [Zapier](http://www.zapier.com) or [CouldWork](http://www.couldwork.com) but with a main big difference, the semantic approach. It uses a new ontology or standardized schema for managing the evented web named [EWE](http://www.gsi.dit.upm.es/ontologies/ewe/); the [Drools Expert](https://www.jboss.org/drools/) rule engine to process low level events and create high level events; [SPIN](http://spinrdf.org/) SPARQL Syntax to process this high level events and order actions; [GSN](http://sourceforge.net/projects/gsn/) middleware as an Event Network and a huge variety of scripts and applications that generates events and proccesses actions, such as Raspberry Pi scripts or Node.js applications.
+DrEWE is a task automation platform. It works in a similar way to [IFTTT](http://www.ifttt.com), [Zapier](http://www.zapier.com) or [CloudWork](http://www.cloudwork.com) but with a main big difference, the semantic approach. It uses a new ontology or standardized schema for managing the evented web named [EWE](http://www.gsi.dit.upm.es/ontologies/ewe/); the [Drools Expert](https://www.jboss.org/drools/) rule engine to process low level events and create high level events; [SPIN](http://spinrdf.org/) SPARQL Syntax to process this high level events and order actions; [GSN](http://sourceforge.net/projects/gsn/) middleware as an Event Network and a huge variety of scripts and applications that generates events and proccesses actions, such as Raspberry Pi scripts or Node.js applications.
 
 ![DrEWE intro](https://dl.dropboxusercontent.com/u/25002167/EWE%20repo/DrEWE%20full%20-%20DrEWE%20intro.png)
 
