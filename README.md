@@ -9,6 +9,7 @@ An intelligent platform for task automation. [Watch the video](http://www.youtub
 
 DrEWE is a task automation platform. It works in a similar way to [IFTTT](http://www.ifttt.com), [Zapier](http://www.zapier.com) or [CloudWork](http://www.cloudwork.com) but with a main big difference, the semantic approach. It uses a new ontology or standardized schema for managing the evented web named [EWE](http://www.gsi.dit.upm.es/ontologies/ewe/); the [Drools Expert](https://www.jboss.org/drools/) rule engine to process low level events and create high level events; [SPIN](http://spinrdf.org/) SPARQL Syntax to process this high level events and order actions; [GSN](http://sourceforge.net/projects/gsn/) middleware as an Event Network and a huge variety of scripts and applications that generates events and proccesses actions, such as Raspberry Pi scripts or Node.js applications.
 
+
 ![DrEWE intro](https://dl.dropboxusercontent.com/u/25002167/EWE%20repo/DrEWE%20full%20-%20DrEWE%20intro.png)
 
 Another main feature that makes DrEWE different is the complex event processing. This means that rules are no longer *if this then that*, instead, DrEWE enables powerful features like after, during, before and coincides statements. For example, *if there is a programmed meeting for subjects A and B, and ten minutes before the meeting they both go into the laboratory: trigger the event 'meeting started' and perform all the necessary tasks, like tweet about it or take a photo to prove that the meeting is going on.*
@@ -22,7 +23,7 @@ Task Automation is a rising area: recently lots of different web services and mo
 So, if all these task automation services could be standardized under the EWE ontology, we would have interoperability between each platform and we would find really interesting features, such as compatibility for task rules no matter the source, or a huge semantic database that will provide all the advantages that big data is bringing to our lives.
 
 ## Submodules
-DrEWE consist in five main modules or projects that can be found under the subtrees of this project.
+DrEWE consists of five main modules or projects that can be found under the subtrees of this project.
 
 ### [GCalendar-DrEWE](https://github.com/carloscrespog/GCalendar-DrEWE)
 
@@ -56,7 +57,7 @@ In DrEWE project, we use GSN as an event network that is a little bit different 
 
 ### [Drools-DrEWE](https://github.com/carloscrespog/DrEWE/tree/master/Drools)
 
-This is the module in charge of processing events and ordering actions. It consists in two different rule engines that work together: the Drools-based engine and the SPIN-based engine. Each of them has a purpose and a reason to be here in DrEWE:
+This is the module in charge of processing events and ordering actions. It consists of two different rule engines that work together: the Drools-based engine and the SPIN-based engine. Each of them has a purpose and a reason to be here in DrEWE:
 
 The Drools engine is a well known rule engine that provides Complex Event Processing thanks to its Fusion module. Although, once deployed this module comes with a software that automatically retrieve the data inside GSN and push it into Drools as timed events, enabling us to use all the powerful CEP features.
 
